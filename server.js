@@ -6,7 +6,7 @@ const app = express();
 const db = require("./models");
 
 db.mongoose
-  .connect("mongodb://localhost:27017/", {
+  .connect("mongodb://localhost:27017/ioweuabeer", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Ioweuabeer Api." });
 });
 
-require("./routes/grid.routes")(app);
+require("./routes/reward.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT_SERVER || 8080
