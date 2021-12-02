@@ -11,11 +11,11 @@ exports.create = (req, res) => {
   const reward = new Reward({
     name: req.body.name,
     score: req.body.score,
-    img:req.body.img,
-    desc:req.body.desc,
-    conditions:req.body.conditions,
-    deprendsOn:req.body.deprendsOn,
-    applyTo:req.body.applyTo,
+    img: req.body.img,
+    desc: req.body.desc,
+    conditions: req.body.conditions,
+    deprendsOn: req.body.deprendsOn,
+    applyTo: req.body.applyTo,
   });
 
   // Save Reward in the database
