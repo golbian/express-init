@@ -14,7 +14,7 @@ exports.create = (req, res) => {
     img: req.body.img,
     desc: req.body.desc,
     conditions: req.body.conditions,
-    deprendsOn: req.body.deprendsOn,
+    dependsOn: req.body.dependsOn,
     applyTo: req.body.applyTo,
   });
 
@@ -25,11 +25,8 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Reward state."
-      });
-    });
+      res.status(500).send(err.message);
+    })
 };
 
 // Retrieve all Rewards from the database.

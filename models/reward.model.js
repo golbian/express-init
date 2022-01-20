@@ -6,7 +6,7 @@ module.exports = mongoose => {
         value: { type: Number, required: true },
         operator: { type: String, required: true },
         target: { type: String, required: true },
-        groups: { type: [String], required: false },
+        group: { type: [String], required: false },
         ids: { type: [String], required: false },
       },
     );
@@ -19,20 +19,10 @@ module.exports = mongoose => {
           desc: { type: String, required: true },
           conditions:{ type: [conditionSchema], required: true},
           applyTo: { type: [String], required: true },
-          deprendsOn:{ ref: "reward", type: Types.ObjectId, required: false }
+          dependsOn:[{ ref: "rewards", type: Types.ObjectId, required: false }]
         },
         { timestamps: true }
       );
-
-    // Duplicate the ID field.
-    rewardSchema.virtual('id').get(function(){
-        return this._id.toHexString();
-    });
-
-    // Ensure virtual fields are serialised.
-    rewardSchema.set('toJSON', {
-        virtuals: true
-    });
     
     const Rewards = mongoose.model("rewards", rewardSchema);
     return Rewards;

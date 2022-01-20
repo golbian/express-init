@@ -3,19 +3,19 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new Grid
+    // Create a new Reward
     router.post("/", rewards.create);
   
-    // Retrieve all Grids
+    // Retrieve all Rewards
     router.get("/", rewards.findAll);
   
-    // Retrieve a single Grid with id
+    // Retrieve a single Reward with id
     router.get("/:id", rewards.findOne);
   
-    // Update a Grid with id
+    // Update a Reward with id
     router.put("/:id", rewards.update);
   
-    // Delete a Grid with id
+    // Delete a Reward with id
     router.delete("/:id", rewards.delete);
   
     app.use('/api/rewards', router);
